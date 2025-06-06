@@ -31,7 +31,7 @@ export default function App() {
     setShowDatePicker(false);
   };
 
-  const getUserLocation = async () => {
+  const requestUserPermission = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
       Alert.alert(
@@ -43,16 +43,37 @@ export default function App() {
     }
   };
 
+  const getUserLocation = async () => {
+    try {
+      const location = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.High,
+      });
+      setLocation({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    getUserLocation();
+    requestUserPermission();
   }, []);
 
   const handleSubmit = async () => {
     // Handle form submission logic here
+
+    await getUserLocation();
+    console.log("location---", location);
+
     alert(
-      `Hive ID: ${hiveId}\nDate: ${date.toLocaleDateString()}\nColonies: ${colonies}`
+      `Hive ID: ${hiveId}\nDate: ${moment(date).format(
+        "DD/MM/YY"
+      )}\nColonies: ${colonies}`
     );
   };
+  console.log("location---", location);
 
   return (
     <View style={styles.container}>
