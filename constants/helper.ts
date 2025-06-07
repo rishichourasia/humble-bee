@@ -1,10 +1,18 @@
-export const mockCropCalenderData = [
+const mockCropCalenderData = [
+  {
+    id: "crop_007",
+    name: "Cotton",
+    flowering_start: "2025-09-01",
+    flowering_end: "2025-09-30",
+    location: { latitude: 18.6073123, longitude: 73.7681453 },
+    recommended_hive_density: 16,
+  },
   {
     id: "crop_001",
     name: "Mustard",
     flowering_start: "2025-06-01",
     flowering_end: "2025-06-15",
-    location: { latitude: 18.6029052, longitude: 73.7681501 },
+    location: { latitude: 18.6073123, longitude: 73.7736453 },
     recommended_hive_density: 4,
   },
   {
@@ -12,7 +20,7 @@ export const mockCropCalenderData = [
     name: "Sunflower",
     flowering_start: "2025-06-01",
     flowering_end: "2025-06-15",
-    location: { latitude: 18.6027252, longitude: 73.7681501 },
+    location: { latitude: 18.6028123, longitude: 73.7736453 },
     recommended_hive_density: 6,
   },
   {
@@ -20,7 +28,7 @@ export const mockCropCalenderData = [
     name: "Wheat",
     flowering_start: "2025-06-15",
     flowering_end: "2025-06-25",
-    location: { latitude: 18.6028152, longitude: 73.7682501 },
+    location: { latitude: 18.6028123, longitude: 73.7681453 },
     recommended_hive_density: 8,
   },
   {
@@ -28,7 +36,7 @@ export const mockCropCalenderData = [
     name: "Rice",
     flowering_start: "2025-07-01",
     flowering_end: "2025-07-30",
-    location: { latitude: 18.6028152, longitude: 73.7680501 },
+    location: { latitude: 18.5983123, longitude: 73.7681453 },
     recommended_hive_density: 10,
   },
   {
@@ -36,7 +44,7 @@ export const mockCropCalenderData = [
     name: "Maize",
     flowering_start: "2025-07-01",
     flowering_end: "2025-07-30",
-    location: { latitude: 18.6029052, longitude: 73.7682501 },
+    location: { latitude: 18.5983123, longitude: 73.7626453 },
     recommended_hive_density: 12,
   },
   {
@@ -44,15 +52,9 @@ export const mockCropCalenderData = [
     name: "Sarsaparilla",
     flowering_start: "2025-08-01",
     flowering_end: "2025-08-30",
-    location: { latitude: 18.6029052, longitude: 73.7680501 },
+    location: { latitude: 18.6028123, longitude: 73.7626453 },
     recommended_hive_density: 14,
   },
-  {
-    id: "crop_007",
-    name: "Cotton",
-    flowering_start: "2025-09-01",
-    flowering_end: "2025-09-30",
-    location: { latitude: 18.6027252, longitude: 73.7682501 },
-    recommended_hive_density: 16,
-  },
 ];
+
+export default mockCropCalenderData;

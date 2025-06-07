@@ -1,11 +1,11 @@
+import { useLocation } from "@/hooks/location-context";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
 import * as Location from "expo-location";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  Alert,
   StyleSheet,
   Text,
   TextInput,
@@ -19,28 +19,13 @@ export default function App() {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [colonies, setColonies] = useState("");
   const [loading, setLoading] = useState(false);
-  const [location, setLocation] = useState<{
-    latitude: number;
-    longitude: number;
-  } | null>(null);
+  const { location, setLocation } = useLocation() as any;
 
   const onChangeDate = (event: DateTimePickerEvent, selectedDate?: Date) => {
     if (event.type === "set" && selectedDate) {
       setDate(selectedDate);
     }
     setShowDatePicker(false);
-  };
-
-  const requestUserPermission = async () => {
-    const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "Location permission not granted",
-        "Please grant location permission to continue",
-        [{ text: "OK", onPress: () => {} }]
-      );
-      return;
-    }
   };
 
   const getUserLocation = async () => {
@@ -56,10 +41,6 @@ export default function App() {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    requestUserPermission();
-  }, []);
 
   const handleSubmit = async () => {
     // Handle form submission logic here
