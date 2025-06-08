@@ -1,50 +1,32 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Humble-bee
 
-## Get started
+React Native app that allows beekeepers to log hive placements and view crop-pollination opportunities based on location and flowering windows.
 
-1. Install dependencies
+## Tech Stack
 
-   ```bash
-   npm install
-   ```
+**App:** React Native, Expo
 
-2. Start the app
+**Geolocation** expo-location
 
-   ```bash
-   npx expo start
-   ```
+**Navigation** expo-router
 
-In the output, you'll find options to open the app in a
+## Features
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Log hive placements with coordinates
+- View Nearby crop opportunities based on current user location
+- Interactive UI
+- local storage functionality to save and view hive log data
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Running locally
 
-When you're ready, run:
+To run the locally, clone the repo, install all dependencies then run the following command to start expo dev build -
 
 ```bash
-npm run reset-project
+  npm install
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+  npm start
+```
+Use your Expo-Go app to scan the QR code from your device.
