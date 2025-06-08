@@ -1,11 +1,11 @@
-import { NearbyCropComponent } from "@/components/screens/NearbyCropScreen/NearbyComponent";
+import { HistoryComponent } from "@/components/screens/History/HistoryComponent";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-export default function NearbyCrops() {
+export default function HistoryScreen() {
   return (
     <View style={styles.container}>
-      <NearbyCropComponent />
+      <HistoryComponent />
     </View>
   );
 }

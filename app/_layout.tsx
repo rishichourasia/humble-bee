@@ -35,6 +35,16 @@ export default function Layout() {
             ),
           }}
         />
+        <Tabs.Screen
+          name="history"
+          options={{
+            title: "History",
+            headerTitle: "History",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="time" size={size} color={color} />
+            ),
+          }}
+        />
       </Tabs>
     </LocationProvider>
   );

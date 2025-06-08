@@ -1,5 +1,6 @@
 import * as Location from "expo-location";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { Alert } from "react-native";
 
 type LocationContextType = {
   location: { latitude: number; longitude: number } | null;
@@ -17,14 +18,29 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({
     latitude: number;
     longitude: number;
   } | null>(null);
+  const [locationPermission, setLocationPermission] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setLocation(null);
+        Alert.alert(
+          "Location permission not granted.",
+          "Please manully input the coordinates",
+          [
+            {
+              text: "OK",
+              style: "default",
+              onPress: () => {
+                setLocationPermission(false);
+              },
+            },
+          ]
+        );
         return;
       }
+      setLocationPermission(true);
       let loc = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.High,
       });
@@ -36,7 +52,9 @@ export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   return (
-    <LocationContext.Provider value={{ location, setLocation }}>
+    <LocationContext.Provider
+      value={{ location, setLocation, locationPermission }}
+    >
       {children}
     </LocationContext.Provider>
   );
