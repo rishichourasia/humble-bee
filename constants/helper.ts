@@ -67,6 +67,15 @@ export function getDistanceFromLatLonInKm(
   lat2: number,
   lon2: number
 ) {
+  lat1 = Number(lat1);
+  lon1 = Number(lon1);
+  lat2 = Number(lat2);
+  lon2 = Number(lon2);
+
+  if (isNaN(lat1) || isNaN(lon1) || isNaN(lat2) || isNaN(lon2)) {
+    return null;
+  }
+
   const R = 6371; // Radius of the earth in km
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
@@ -78,6 +87,7 @@ export function getDistanceFromLatLonInKm(
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const d = R * c; // Distance in km
+  console.log("distance--", d);
   return d;
 }
 

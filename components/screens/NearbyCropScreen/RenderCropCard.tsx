@@ -14,8 +14,8 @@ export const RenderCropCard = ({ cropArray }: any) => {
       distance = getDistanceFromLatLonInKm(
         location.latitude,
         location.longitude,
-        crop.location.latitude,
-        crop.location.longitud
+        Number(crop.location.latitude),
+        Number(crop.location.longitude)
       );
     }
     return (
@@ -48,10 +48,13 @@ export const RenderCropCard = ({ cropArray }: any) => {
             {crop.recommended_hive_density} Hives/Acre
           </Text>
         </Text>
-        {!isNaN(distance as number) && (
+
+        {distance !== null ? (
           <Text style={styles.distance}>
-            Distance: {distance?.toFixed(1)} km
+            Distance: {distance.toFixed(1)} km
           </Text>
+        ) : (
+          <Text style={styles.distance}>Distance: N/A</Text>
         )}
       </View>
     );
